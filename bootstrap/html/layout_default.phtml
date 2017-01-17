@@ -6,7 +6,7 @@
 
     <meta property="bb:url" content="{{ constant('BB_URL') }}"/>
     <meta property="bb:client_area" content="{{ '/'|link }}"/>
-    
+
     <meta name="description" content="{% block meta_description %}{{ settings.meta_description }}{% endblock %}" />
     <meta name="keywords" content="{% block meta_keywords %}{{ settings.meta_keywords }}{% endblock %}" />
     <meta name="robots" content="{% if settings.meta_robots|default %}{{ settings.meta_robots }}{% else %}index, follow{% endif %}" />
@@ -14,18 +14,18 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}" />
-	
+
 	<!-- Bootstrap Core CSS -->
 	{% if settings.theme != "default" %}<link href="{{ 'css/themes/theme-' | asset_url }}{{ settings.theme }}.min.css" rel="stylesheet">
 	{% else %}<link href="{{ 'css/bootstrap.min.css' | asset_url }}" rel="stylesheet">
 	{% endif %}
-	
+
 	<!-- Bootstrap Markdown Editor -->
     <link href="{{ 'css/bootstrap-markdown.min.css' | asset_url }}" rel="stylesheet">
 
     <!-- Theme CSS -->
     <link href="{{ 'css/modern-business.css' | asset_url }}" rel="stylesheet">
-	
+
 	{% if settings.inject_css|default %}
 	<!-- Custom CSS -->
 	<style>
@@ -35,31 +35,31 @@
 
     <!-- Custom Fonts -->
     <link href="{{ 'font-awesome/css/font-awesome.min.css' | asset_url }}" rel="stylesheet" type="text/css">
-	
+
 	<!-- jQuery -->
     <script src="{{ 'js/jquery.js' | asset_url }}"></script>
-	
+
 	<!-- BoxBilling -->
     <script src="{{ 'js/bb-jquery.js' | asset_url }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ 'js/bootstrap.min.js' | asset_url }}"></script>
-	
+
 	<!-- Bootstrap Markdown Editor -->
 	<script src="{{ 'js/bootstrap-markdown.js' | asset_url }}"></script>
 	<script src="{{ 'js/to-markdown.js' | asset_url }}"></script>
 	<script src="{{ 'js/markdown.js' | asset_url }}"></script>
-	
+
 	<!-- Bootbox Alerts JavaScript -->
     <script src="{{ 'js/bootbox.min.js' | asset_url }}"></script>
-	
+
 	{% if settings.inject_javascript|default %}
 	<!-- Custom Javascript -->
 	<script>
 		{{ settings.inject_javascript|raw }}
 	</script>
 	{% endif %}
-	
+
 	{% block js %}{% endblock %}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -107,7 +107,7 @@
 						{% if settings.side_menu_support %}<li class="visible-xs"><a href="{{ 'support'|link }}" title="{% trans 'Tickets' %}"><i class="fa fa-life-ring"></i> {% trans 'Support' %}</a></li>{% endif %}
 						{% if settings.side_menu_invoices %}<li class="visible-xs"><a href="{{ 'invoice'|link }}" title="{% trans 'Invoices' %}"><i class="fa fa-credit-card"></i> {% trans 'Invoices' %}</a></li>{% endif %}
 						<li><a href="{{ ''|link }}" title="{% trans 'Dashboard' %}"><i class="fa fa-home"></i> {% trans 'Dashboard' %}</a></li>
-						<li><a href="{{ 'cart'|link }}" title="{% trans 'Shopping cart' %}"><i class="fa fa-shopping-cart"></i> {% trans 'Shopping cart' %}</a></li>
+						<!-- <li><a href="{{ 'cart'|link }}" title="{% trans 'Shopping cart' %}"><i class="fa fa-shopping-cart"></i> {% trans 'Shopping cart' %}</a></li> -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{ (profile.first_name ~ " " ~ profile.last_name) }} <span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -117,7 +117,7 @@
 								<li><a href="{{ 'client/logout'|link }}" title="{% trans 'Sign out' %}"><i class="fa fa-sign-out"></i> {% trans 'Sign out' %}</a></li>
 							</ul>
 						</li>
-					{% else %}			
+					{% else %}
 						<li><a href="" data-toggle="modal" data-target="#login">{% trans 'Sign in' %}</a></li>
 						<li><a href="{{ 'login'|link({'register' : 1}) }}">{% trans 'Register' %}</a></li>
 					{% endif %}
@@ -132,9 +132,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			
+
 		</div>
-		
+
 	{% if side_menu == 'hidden' %}
 		<div class="col-sm-12">
 	{% else %}
@@ -153,20 +153,20 @@
 							{% endfor %}
 							</select>
 				{% endif %}-->
-			
+
 			{% block sidebar %}{% endblock %}
-			
+
 			{% if settings.sidebar_note_enabled %}
             <div class="well well-sm">
                 <h4>{{ settings.sidebar_note_title }}</h4>
                 <p>{{ settings.sidebar_note_content }}</p>
             </div>
-            {% endif %}	
-			
+            {% endif %}
+
 			{% block sidebar2 %}{% endblock %}
 		</div>
 		<div class="col-sm-9">
-	{% endif %}	
+	{% endif %}
 			{% block content_before %}{% endblock %}
 			{% include "partial_message.phtml" %}
 			{% block content %}{% endblock %}
@@ -207,7 +207,7 @@
 				</div>
 			</div>
 			{% endif %}
-		</div>      
+		</div>
 	</div>
 
 	{% if settings.show_page_footer %}
@@ -241,7 +241,7 @@
 							<li><a href="http://www.boxbilling.com" title="Billing Software" target="_blank">{% trans 'Powered by BoxBilling' %}</a></li>
 						{% endif %}
                     </ul>
-					
+
 				</div>
 				{% if settings.footer_to_top_enabled %}<a href="#top" class="btn btn-default pull-right"><i class="fa fa-arrow-up"></i> {% trans 'Top' %}</a>{% endif %}
 			</div>
